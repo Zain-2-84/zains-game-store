@@ -1,0 +1,18 @@
+Mistake log (September 15th, 2026)
+
+What worked?
+    1. Managed to display the <ul> bullet by using padding-left in App.jsx.
+    2. Changed class to className.
+    3. Fixed item.name to {item.name} inside the GameCard.jsx and Cart.jsx. It worked in GameCard, but not in Cart.jsx.
+    4. I tried to move const gamesMap variable inside the Cart arrow function, but it still won't display the dynamic values of item.
+    5. Tried using Math.floor() then wrote Math.random() inside it to create random numbers to solve the 'Every <li> in React needs an unique key'. But it still didn't work.
+    6. Wrote static 1 till 5 string as keys in gameCard. React is still giving me a 'Every <li> needs an unique key'.
+
+(September 17th, 2026)
+
+What worked?
+    1. I noticed in the Console error that the browser displayed the old file 'cart.jsx'. So I wondered if changing the './components/cart' to './components/Cart' in App.jsx. And it worked, that error vanished.
+    2. I also noticed something werid, now the 'React needs an unique key for every <li>' is gone from everywhere. Even when I tried putting it in GameCard.jsx inside the <div> parent and first <li> child for experimentation. Nothing happened and no error popped up.
+    3. When I removed key from <div> parent element, the error popped up again. This helped me remember that key is for React only and invisible for the developer. If I want to see that, I need to use an id attribute.
+    4. I tried to replace key with id in the <div> parent inside the GameCard, then I saw the entire <div> had the id of the Game object inside the GamesList array, and it was the same for the remaining two games. Then I saw the same 'React wants a key for every list element'. But the strange thing was that only the <div> parent needed the key="", the <li> inside the <div> didn't have the key="" but React was fine with that.
+    5. Now I want to solidify, meaning finally learn how to create a new branch, switch between branches, when to add, commit, and pull, and how to delete files and other things. Because I keep forgetting this and it isn't a good thing.
