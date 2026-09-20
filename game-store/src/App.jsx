@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-// I don't know why cart needs to be written in smallcase.
 import Cart from './components/Cart'
 import GameCard from './components/GameCard'
 
@@ -10,7 +9,7 @@ function App() {
     <>
       <div className="store">
         <div className="heading">
-          <h1>Welcome to Game store.</h1>
+          <h1>Welcome to Game store (Version 2.0).</h1>
         </div>
 
         <div className="games-section">
