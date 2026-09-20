@@ -43,8 +43,17 @@ export const GamesList = [
         id: 3,
         name: 'Etheira: Restart',
         price: 'Free',
-        genre: 'A 2D turn-based strategy easier and more relaxed.',
+        genre: 'A 2D turn-based strategy MMO. Make a team, battle in solo or multiplayer arenas, or explore vast map.',
         image: 'Girls Frontline 2 Exilum',
         quantity: 2
+    },
+
+    {
+        id: 4,
+        name: 'Lost for swords',
+        price: 'Free',
+        genre: 'A 2D turn based dungeon crawler. No in game pruchase or expansion, a complete game.',
+        image: 'Lost for swords',
+        quantity: 4
     }
 ]
