@@ -1,8 +1,7 @@
-import { GamesList } from "./GamesList";
+export default function GameCard({ games }) {
+    // const gamesListProp = props;
 
-export default function GameCard() {
-
-    const gameCard = GamesList.map((item) => {
+    const gameCard = games.map((item) => {
         return (
             <div key={item.id}>
                 <ul>

@@ -52,7 +52,7 @@ export const GamesList = [
         id: 4,
         name: 'Lost for swords',
         price: 'Free',
-        genre: 'A 2D turn based dungeon crawler. No in game pruchase or expansion, a complete game.',
+        genre: 'A 2D turn based dungeon crawler. No in game purchase or expansion, a complete game.',
         image: 'Lost for swords',
         quantity: 4
     }

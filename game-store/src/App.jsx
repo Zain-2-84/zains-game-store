@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Cart from './components/Cart'
 import GameCard from './components/GameCard'
+import { GamesList } from './components/GamesList'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
 
         <div className="games-section">
           <p>Games section</p>
-          <GameCard />
+          <GameCard games={GamesList} />
         </div>
         <div className="cart-section">
           <p>Cart section</p>

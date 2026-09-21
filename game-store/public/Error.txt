@@ -16,3 +16,50 @@ What worked?
     3. When I removed key from <div> parent element, the error popped up again. This helped me remember that key is for React only and invisible for the developer. If I want to see that, I need to use an id attribute.
     4. I tried to replace key with id in the <div> parent inside the GameCard, then I saw the entire <div> had the id of the Game object inside the GamesList array, and it was the same for the remaining two games. Then I saw the same 'React wants a key for every list element'. But the strange thing was that only the <div> parent needed the key="", the <li> inside the <div> didn't have the key="" but React was fine with that.
     5. Now I want to solidify, meaning finally learn how to create a new branch, switch between branches, when to add, commit, and pull, and how to delete files and other things. Because I keep forgetting this and it isn't a good thing.
+
+    September 20th, 2026
+    What worked?
+    1. I practiced 2 quizzes, scored 9 and 8 out of 10 respectively.
+    2. I practiced a handful of Git commands. git status, git git diff, git add, git diff --staged, git commit, git log.
+
+    What didn't work?
+    1. I faced a little problems in git diff and git diff --staged, where I couldn't exit by pressing enter or other keys. So I had to close the Git Bash and resume by skipping the two previously mentioned commands.
+
+    September 21st, 2026
+    What worked?
+    1. I tried importing GamesList array to App.jsx then give it to GameCard.jsx, so that App.jsx is where all data is passed to, or goes through.
+    
+    2. I wrote import { GamesList } from './components./GamesList', then copied the code from ChatGPT < GameCard games={GamesList} />, then tried object destructure from memory by writing { games } inside the function or component parenthesis () of GamesList. Then instead of GamesList after the assignment operator, since I originally used GamesList array directly, I used games from object destructure. And it worked!
+
+    What didn't work?
+    1. I tried using props first, like this:
+    export function GamesList (props) {
+        const gamesListProp = props;
+    }
+
+    const gameCard = gamesListProp.map(() => {})
+    but React gave me a TypeError, saying 'gamesListProp is not a function'. Which means that I'm supposed to pass or give .map() an object, not a function.
+    
+    2. I want to know why array, when importing, needs to be written in curly brackets:
+    import { GamesList } from './components/GamesList'
+
+    3. And why in passing things from App.jsx to GamesList.jsx do I need to use custom key names like 'games' and why do I need to use curly brackets to destructure the GamesList array? It is because it is like packaging the GamesList and putting a label of games, so that when it reaches GamesList, the component then destructure it again so that .map() can use it?
+
+    What I learned from AI?
+    1. I learned that I.e.
+    <PersonCard details={ PeopleList } />
+    when I pass or give a dynamic value like PeopleList array to a ""React component"", then details becomes a prop, not a HTML property.
+
+    Check if the element is a React component.
+
+    2. When the details prop reaches the desired component file. It reaches like this:
+
+    props = {
+        games: [ ...array... ]
+    }
+
+    When you destructure in component parenthesis, it says, "Remove props word, then create a local variable named games, without changing the entire array from the source, meaning GamesList." Like this:
+
+    const games = [{}, {}, {}, {}];
+
+    Then .map() can run on games, since map can use arrays.
