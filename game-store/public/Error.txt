@@ -63,3 +63,15 @@ What worked?
     const games = [{}, {}, {}, {}];
 
     Then .map() can run on games, since map can use arrays.
+
+    September 22nd, 2026:
+    What worked?
+    1. I managed to fix and created the 'Increment Cart Item' in Cart Section. Initially, I wrote the useState() and CartItemsIncrement component or function outside and before the App() component. Hence, React gave me an Uncaught TypeError, 'Can't read properties of null, (reading useState) at App.jsx:7:35.' I don't know if CartItemsIncrement is a function here or a component.
+
+    2. I decided to use a local variable named increment and console it, it worked, but due to the rendering nature of React, it reset itself to 0, so the value was stuck at 1, even after clicking it repeatedly.
+
+    3. I wrote or called CartItemsIncrement with brackets, inside the JSX, in onclick property. But I decided to remove that. I can't remember why.
+
+    4. I decided to shift the useState and CartItemsIncrement function or component inside the App (). It worked, and the whole UI is showing perfectly.
+
+    5. I decided to remove the local variable increment, and used cartItems state value instead, then used something called 'updater setter' to increment the latest value of itself with 1 or any number mentioned after it. And that is working too.
