@@ -38,3 +38,9 @@
   border: 0.5rem solid yellow;
   padding-left: 1.3rem;
 }
+
+.addGameButton, .removeGameButton {
+  padding-right: 10px;
+  margin-right: 10px;
+  text-align: center;
+}

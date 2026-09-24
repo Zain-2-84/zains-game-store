@@ -75,3 +75,73 @@ What worked?
     4. I decided to shift the useState and CartItemsIncrement function or component inside the App (). It worked, and the whole UI is showing perfectly.
 
     5. I decided to remove the local variable increment, and used cartItems state value instead, then used something called 'updater setter' to increment the latest value of itself with 1 or any number mentioned after it. And that is working too.
+
+    What is updater callback?
+    In my words:
+    So, prevItems isn't a magical thing in React where it automatically updates the setter function 'setCartItems()' to the latest value. It could be any name.
+
+When one writes:
+
+setCartItems( (prevItems) => {
+  return prevItems + 1;
+} );
+
+React accesses the setCartItems setter function, then finds cartItems which is initially 0. Then that value is given to prevItems or some other named local variable, whose memory will be deleted, but the useState cartItems's value will survive, so it works.
+
+Then finally, we return by incrementing prevItems by 1 or whichever number we desire.
+
+Is it important to name the updater callback with a prefix of prev?
+
+Is my understanding correct?
+
+    In AI's words:
+
+    Here is the simplest way to think about it:
+
+### 1. Is `prevItems` a magic word?
+
+**No.** `prevItems` is just a temporary variable name. You can name it whatever you like—`x`, `current`, `items`, or `chicken`.
+
+React doesn't care about the name. All React cares about is that you passed a **function** into `setCartItems`.
+
+---
+
+### 2. Is `prev` required?
+
+**No.** It's just a helpful habit (a convention).
+
+Calling it `prevItems` (short for *previous items*) makes your code easy to read, but `currentCount` or `x` works 100% the same way.
+
+---
+
+### 3. How it works step-by-step (The Simplified Version)
+
+Think of React as a **bank teller**, and your callback as a **deposit slip instruction**:
+
+1. **You hand React a rule:** You run `setCartItems((x) => x + 1)`. You aren't giving React a final total; you are handing React a note that says: *"Whatever amount is in the account right now, add 1 to it."*
+2. **React opens the vault:** React looks at its private vault where the real `cartItems` number lives (let's say it's `0`).
+3. **React runs your rule:** React drops that `0` into your variable `x`. Your code calculates `0 + 1` and hands `1` back to React.
+4. **React saves the new total:** React saves `1` in the vault as the new total and updates your screen.
+
+---
+
+### In Short:
+
+Your understanding is **100% correct**. You give React a mini-formula, React feeds its latest saved number into your variable, and uses what you `return` as the new state.
+
+September 23rd, 2026:
+    What worked?
+    1. I managed to rewrite the old 'Direct state updating' to 'updater callback or function', I used both () for without return and {} with return.
+    2. I created a 'Remove Game' button and renamed 'CartItemsIncrement' to 'Add Game'. I had a little trouble with writing a condition that prevents the gameQuantity from going to negative numbers.
+    3. It first:
+    gameQuantity < 0 was working, but React never reduced the number, then
+    gameQuantity <= 0 and gameQuantity <= 1 didn't work, because the value exceded negative numbers.
+    I tried adding a AND operator, but gameQuantity < 0 prevented the value from decreasing.
+    I looked carefully and thought, 'I need to check the value on the left, not the right'. So I changed '<' to '>'. Thus:
+    gameQuantity > 0 worked!
+
+September 24th, 2026:
+    What worked?
+    1. I created a 'Reset' button and it successfully resets the value of the 'gameQuantity' state to zero.
+    2. I created a disable HTML property to 'Remove' to disable it when the 'gameQuantity' state is equal to zero.
+    3. I created a condition inside the 'gameQuantityIncrement' and a disabled HTML property inside the 'Add' button. To prevent the user and hackers from illegally changing the 'gameQuantity' state.

@@ -7,14 +7,32 @@ import { GamesList } from './components/GamesList'
 
 function App() {
 
-  const [cartItems, setCartItems] = useState(0);
+  const [gameQuantity, setGameQuantity] = useState(0);
 
-  const CartItemsIncrement = () => {
-    // let increment = 0;
-    // increment = increment + 1;
-    // setCartItems(increment);
+  const gameQuantityIncrement = () => {
+    // This code below is correct, but don't use return.
+    // return setGameQuantity(gameQuantity + 1);
+    if (gameQuantity < 5) {
+      setGameQuantity((prev) => (prev + 1));
+    } else {
+      return null;
+    }
+  }
 
-    return setCartItems(cartItems + 1);
+  function gameQuantityDecrement() {
+    if (gameQuantity > 0) {
+      setGameQuantity((prev) => {
+        return prev - 1;
+      })
+
+    } else {
+      return null;
+    }
+
+  }
+
+  const gameQuantityResetToZero = () => {
+    setGameQuantity(0);
   }
 
   return (
@@ -32,12 +50,20 @@ function App() {
           <p>Cart section</p>
           <Cart />
 
-          <button onClick={CartItemsIncrement}>
-            Increment Cart Items
+          <button onClick={gameQuantityIncrement} className="addGameButton" disabled={gameQuantity === 5}>
+            Add
+          </button>
+
+          <button onClick={gameQuantityDecrement} className="removeGameButton" disabled={gameQuantity === 0 ? true : false}>
+            Remove
+          </button>
+
+          <button onClick={gameQuantityResetToZero} className='resetGameButton'>
+            Reset at zero
           </button>
 
           <br /><br />
-          {cartItems}
+          {gameQuantity}
         </div>
       </div>
     </>
